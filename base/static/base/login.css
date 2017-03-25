@@ -1,0 +1,28 @@
+div#login-container {
+	display: inline-block;
+}
+
+table#creds-table tr {
+	height: 40px;
+}
+
+div#button-container {
+	position: relative;
+	right: 5px;
+	text-align: right;
+}
+
+button#submit {
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button#submit:hover {
+	background-color: #3D9E41;
+}

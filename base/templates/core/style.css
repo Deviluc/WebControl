@@ -1,0 +1,9 @@
+div#menu-container {
+	position: absolute;
+	left: 0px;
+	width: 200px;
+}
+
+div {
+	border: 1px solid blue;
+}

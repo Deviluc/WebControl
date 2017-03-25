@@ -1,0 +1,34 @@
+<title>Tomcat instances</title>
+
+<h1>Tomcat instances</h1>
+
+<div class="instance-filter">
+	Server: 
+	<select>
+		{% for server in server_list %}
+		<option value="{{ server.id }}" {% if server == filter_server %} selected=true {% endif %}>{{ server.display_name }}</option>
+		{% endfor %}
+	</select>
+	Group:
+	<select>
+		<option value="-1" {% if filter_group == None %} selected=true {% endif %}></option>
+		{% for group in tomcat_group_list %}
+		{% if group.server == filter_server %}
+		<option value="{{ group.id }}" {% if group == filter_group %} selected=true {% endif %}>{{ group.number }}</option>
+		{% endif %}
+		{% endfor %}
+	</select>
+		
+
+
+</div>
+
+{% if tomcat_instance_list %}
+    <ul>
+    {% for instance in tomcat_instance_list %}
+        <li><a href="{% url 'tomcats:details' instance.id %}">{{ instance.display_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tomcat-instances are available.</p>
+{% endif %}

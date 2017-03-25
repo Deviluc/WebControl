@@ -1,0 +1,22 @@
+{% extends "core/core.html" %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'base/login.css' %}">
+{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block viewport %}
+	<div id="login-container">
+	  <form method="post">
+	    {% csrf_token %}
+	    <table id="creds-table">{{ form.as_table }}</table>
+	    <div id="button-container">
+	    	<button id="submit" type="submit">Login</button>
+	    </div>
+	  </form>
+  	</div>
+{% endblock %}

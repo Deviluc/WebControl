@@ -1,0 +1,37 @@
+{% extends "core/core.html" %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block viewport %}
+
+<div id="filter-container">
+	<form action="{% url 'base:scripts_overview' %}" method="post">
+		{% csrf_token %}
+		Filter by Environment: 
+		<select name="environment">
+			{% for env in environments %}
+				<option value="{{ env.id }}">{{ env }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Filter" />
+	</form>
+</div>
+
+<div id="table-container">
+	<table class="object-table" style="width: 100%; height: 100%;">
+		<tr>
+			<th>Name</th>
+			<th>Environment</th>
+			<th>Action</th>
+		</tr>
+		{% for script in scripts %}
+		<tr>
+			<td>{{ script.name }}</td>
+			<td>{{ script.executionEnvironment }}</td>
+			<td></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+
+{% endblock %}

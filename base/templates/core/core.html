@@ -1,0 +1,49 @@
+{% load static %}
+
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'base/base.css' %}">
+		{% block head %}
+		{% endblock %}
+	</head>
+	<body>
+		<div id="base-container">
+			<div id="title-container-outer">
+				<div id="title-container-inner">
+					<a id="title">{% block title %} {% endblock %}</a>
+				</div>
+			</div>
+
+			{% block menu %}
+			<div id="menu-container-outer">
+				<div id="menu-container-middle">
+					<div id="menu-container-inner">
+						<ul id="nav">
+							<li class="menu-list-item"><a class="list-item" href="{% url 'base:index' %}">Home</a></li>
+							<li class="menu-list-item">
+								<a class="list-item" href="{% url 'base:jobs_overview' %}">Jobs</a>
+								<ul class="subs">
+									<li class="menu-list-item"><a class="list-item" href="{% url 'base:jobs_overview' %}">Overview</a></li>
+								</ul>
+							</li>
+							<li class="menu-list-item">
+								<a class="list-item" href="{% url 'base:scripts_overview' %}">Scripts</a>
+								<ul class="subs">
+									<li class="menu-list-item"><a class="list-item" href="{% url 'base:scripts_overview' %}">Overview</a></li>
+								</ul>
+							</li>
+							<li class="menu-list-item"><a class="list-item" href="{% url 'admin:index' %}">Administration</a></li>
+							<li class="menu-list-item"><a class="list-item" href="{% url 'tomcats:index' %}">Tomcats</a></li>
+							<li class="menu-list-item"><a class="list-item" href="{% url 'logout' %}">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{% endblock %}
+			<div id="viewport-container">
+				{% block viewport %}
+				{% endblock %}
+			</div>
+		</div>
+	</body>
+</html>
